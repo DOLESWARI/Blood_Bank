@@ -1,0 +1,3 @@
+#self.img = ImageTk.PhotoImage(file="images/image15.jpeg")
+#self.img = ImageTk.PhotoImage(file="images\\image15.jpeg")
+self.img = ImageTk.PhotoImage(file="E:\\python_projects\\blood_bank\\images\\image15.jpeg")

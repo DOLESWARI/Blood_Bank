@@ -1,0 +1,10 @@
+self.combo_select(self,e)
+
+function called from cmb2(self.cmb2.bind    		#####self.cmb2.bind('<<ComboboxSelected>>',self.combo_select)#### 
+combo box that is combo box of blood group 
+jate jei blood group select kra hbe tar price value for 1 unit dekhay 
+
+self.blood_choice(self,e)
+function called from e2 				#####self.e2.bind("<KeyRelease>",self.blood_choice)#####
+coz ekhane joto gulo quantity deoya hbe oto gulo multiply per unit value + gst diye 
+nicher label e cost value display hbe

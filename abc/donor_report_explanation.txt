@@ -1,0 +1,83 @@
+Donor report e two ways to generate report;
+
+1> generate report w.r.t dname or state
+	==> for these after selecting any row from the tree view the generate report button will become active otherwise will be disabled 
+2> generate the whole report w.r.t the whole transactions seen in the page
+	==>for these no need to select any row from the tree view,pdf will bw generated for the whole (i.e.==>states under states the dname ,did ,blood_qty,date etc.) 
+
+
+
+for (2) option:::
+1st w.r.t the states counted no of did
+by using group by function to count no of times states repeated
+
+o/p=>[('BIHAR', 1), ('DELHI', 1), ('HIMACHAL PRADESH', 2), ('JAMMU KASHMIR', 3), ('ODISHA', 1), ('UTTARAKHAND', 1), ('WEST BENGAL', 2)]
+     number= 7
+
+2nd in the range of length of states printed the states seperatedly not in the list which is done when taken from database and printed in the list of lst
+m=0
+lst[m][n]=> prints state
+n=n+1
+print(lst[m][n])=> prints the count value
+m+1=> for the nxt value within the list
+
+o/p=>   BIHAR
+	1
+	DELHI
+	1
+	HIMACHAL PRADESH
+	2
+	JAMMU KASHMIR
+	3
+	ODISHA
+	1
+	UTTARAKHAND
+	1
+	WEST BENGAL
+	2
+
+lst = self.c.execute("select state,count(*) from donor group by state")
+lst = [row for row in lst]
+print(lst)
+print("number=",len(lst))
+m=0
+for i in range(len(lst)):
+  n=0
+  print(lst[m][n])
+  n=n+1
+  print(lst[m][n])
+  m=m+1
+        
+
+3rd after getting the states and the no of entries per state seperately 
+now need to calculate no of donations done by every individual in the state
+
+lst = self.c.execute("select state,count(*) from donor group by state")
+lst = [row for row in lst]
+print(lst)
+print("number=",len(lst))
+m=0
+for i in range(len(lst)):
+	n=0	
+	print(lst[m][n])
+	name_lst = self.c.execute("select did,dname,state from Donor where state=?",(lst[m][n],))
+	name_lst = [row for row in name_lst] 
+	print(name_lst)
+	n=n+1
+  	print(lst[m][n])
+  	m=m+1
+
+o/p =>  HIMACHAL PRADESH
+	[('Did007', 'subhendhu', 'HIMACHAL PRADESH'), ('Did012', 'Raima Das', 'HIMACHAL PRADESH')]
+	
+same will be the output for other for the xtra part written over here
+
+4th is to now seperate out the value of did from the list of tuples ---->i.e.[('Did007', 'subhendhu', 'HIMACHAL PRADESH'), ('Did012', 'Raima Das', 'HIMACHAL PRADESH')]
+for that nested loop is required-->to diffentiate the did value(working with did value bcoz it is only unique key
+then again from database take the blood qty,date state dname all the values from two tables(donor,donation) to print those values in the pdf
+
+  
+
+
+
+

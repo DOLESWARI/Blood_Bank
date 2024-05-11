@@ -1,0 +1,9 @@
+Sql queries
+
+select cast(substr(date,6,2) as integer)+2 from donate;
+
+select did,state,dname,blood_grp,quantity,date from donor,donate where donor.did=donate.did order by donate.did;
+
+select donor.did,state,dname,blood_grp,quantity,date from donor,donate where donor.did=donate.did and donor.did='Did008' order by donate.did;
+
+select state,count(*) from donor group by state;

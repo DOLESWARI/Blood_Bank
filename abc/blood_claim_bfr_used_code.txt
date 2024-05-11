@@ -1,0 +1,141 @@
+"""blood claim							#TO PRINT ON WEBPAGE THROUGH CODE NOT TAKING VALUE FROM DATABASE AND WRITTING ON THE LABEL
+    def blood_choice(self,e):
+        b_grp = self.cmb2.get()
+        #qty = int(self.e2.get())
+        #print (qty)
+
+        if(self.e2.get()== ''): #or int(self.e2.get())==0):
+            qty=0
+            print(qty)
+            self.l7.config(text="0.0")
+            '''if(b_grp=="Select Blood Group"):
+                self.e2.delete(0, END)
+                msg.showerror('ERROR', 'PLEASE SELECT BLOOD GROUP', parent=self.root)
+                #return
+                #self.e2.delete(0, END)
+                #self.e2.insert(0, "")
+                return'''
+        '''else:
+            qty = int(self.e2.get())
+        print(qty)'''
+        if b_grp == "A+":
+            if(self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+                #mul = float((1800 * qty) + ((1800 * qty) * 0.05));
+                #self.l7.config(text=mul)
+                #self.l7.config(text="0.0")
+            else:
+                qty = int(self.e2.get())
+            mul = float((1800 * qty) + ((1800*qty)*0.05));
+            self.l7.config(text=mul)
+        elif b_grp == "B+":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            mul=float((1900 * qty) + ((1900*qty)*0.05));
+            #self.l8.config(text="1900/-")
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "AB+":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="2000/-")
+            mul = float((2000 * qty) + ((2000*qty)*0.05));
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "O+":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="1900/-")
+            mul = float((1900 * qty) + ((1900*qty)*0.05));
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "A-":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="2500/-")
+            mul = float((2500 * qty) + ((2500*qty)*0.05));
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "B-":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="2800/-")
+            mul = float((2800 * qty) + ((2800*qty)*0.05))
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "O-":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="2700/-")
+            mul = float((2700 * qty) + ((2700*qty)*0.05));
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+        elif b_grp == "AB-":
+            if (self.e2.get() == '' or int(self.e2.get()) == 0):
+                qty = 0
+            else:
+                qty = int(self.e2.get())
+            #self.l8.config(text="2500/-")
+            mul = float((2500 * qty) + ((2500*qty)*0.05));
+            self.l7.config(text=mul)
+            '''if self.l7.cget("text") == 0.0:
+                self.l7.config(text="")'''
+"""
+
+
+"""
+def combo_select(self, e):			#PRINTING VALUE OF 1 UNIT OF EACH BLOOD GROUP WRITING CODE LATER MODIFIED AND VALUE OF EACH BLOOD GROUP 1 UNIT TAKEN FROM DATABASE AND PRINTED TROUGH CODE ON LABEL
+    
+    '''if self.cmbtext2.get() == 'A+':
+        #self.l8.config(text="1800/-")
+        lst = self.c.execute('select cost,quantity from stock where blood_group=?',("A+",))
+        lst=[a for a in lst]
+        print(lst)
+
+        self.l8.config(text=lst[0][0])
+    elif self.cmbtext2.get() == 'B+':
+        self.l8.config(text="1900/-")
+    elif self.cmbtext2.get() == 'AB+':
+        self.l8.config(text="2000/-")
+    elif self.cmbtext2.get() == 'O+':
+        self.l8.config(text="1900/-")
+    elif self.cmbtext2.get() == 'A-':
+        self.l8.config(text="2500/-")
+    elif self.cmbtext2.get() == 'B-':
+        self.l8.config(text="2800/-")
+    elif self.cmbtext2.get() == 'AB-':
+        self.l8.config(text="2700/-")
+    elif self.cmbtext2.get() == 'O-':
+        self.l8.config(text="2500/-")'''
+"""
+
+
+"""def combo_select(self, e):
+    self.c = self.con.cursor()
+    self.lst = self.c.execute('select cost,quantity from stock where blood_group=?', (self.cmbtext2.get(),))
+    self.lst = [a for a in self.lst]  # op-> [(850, 1)]				#LIST OF TUPLE BY COMPREHENSION
+    # for r in self.lst:
+    # print(r)            # op-> (850, 1)					#TUPLE
+    print(self.lst)
+    self.l8.config(text=self.lst[0][0])
+    self.l9.config(text=self.lst[0][1])
+
+    self.c.close()"""
